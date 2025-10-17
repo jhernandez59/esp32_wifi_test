@@ -86,3 +86,8 @@ settings.json
 # Junk files
 *.orig
 *.rej
+
+# Archivos locales que no deben compartirse
+sdkconfig
+# Credenciales WiFi locales
+include/wifi_config.h

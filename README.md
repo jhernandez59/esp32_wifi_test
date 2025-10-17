@@ -8,6 +8,7 @@ Proyecto de prueba para conexión WiFi y servicio mDNS en ESP32.
 - Estructura modular con tareas FreeRTOS
 
 ## Estructura
+
 esp32_wifi_test/
 ├── .gitignore
 ├── .gitattributes

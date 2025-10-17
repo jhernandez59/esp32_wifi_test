@@ -1,0 +1,20 @@
+# Normalize line endings
+*.cpp text
+*.h text
+*.c text
+*.txt text
+*.md text
+*.py text
+*.sh text
+*.cmake text
+*.yml text
+*.yaml text
+*.json text
+
+# Binary files
+*.bin binary
+*.elf binary
+*.a binary
+*.so binary
+*.jpg binary
+*.png binary
