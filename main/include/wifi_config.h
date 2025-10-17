@@ -1,0 +1,8 @@
+#ifndef WIFI_CONFIG_H
+#define WIFI_CONFIG_H
+
+// ✅ CONFIGURA TUS CREDENCIALES AQUÍ
+#define WIFI_SSID "SKYNET"
+#define WIFI_PASS "79152302"
+
+#endif

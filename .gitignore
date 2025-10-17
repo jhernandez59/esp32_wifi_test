@@ -1,0 +1,88 @@
+# ESP-IDF build directories
+build/
+sdkconfig
+sdkconfig.old
+
+# Compiled files
+*.elf
+*.bin
+*.map
+*.lst
+*.a
+*.o
+*.so
+*.d
+*.su
+
+# Precompiled headers
+*.gch
+*.pch
+
+# Backup files
+*~
+*.bak
+*.swp
+*.swo
+
+# IDE files
+.vscode/
+.idea/
+*.workspace
+
+# ESP-IDF dependencies
+components/
+managed_components/
+dependencies.lock
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+
+# System
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+logs/
+
+# Partition tables
+partitions_*.csv
+
+# Certificate files
+*.key
+*.pem
+*.crt
+
+# Temporary files
+tmp/
+temp/
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.cmake
+!CMakeLists.txt
+
+# ESP-IDF specific
+.project
+.cproject
+.pyproject
+settings.json
+
+# Flash and partition files
+*.partitions.bin
+*.flash.bin
+*.ota.bin
+
+# Junk files
+*.orig
+*.rej
