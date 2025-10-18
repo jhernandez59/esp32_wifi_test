@@ -15,10 +15,10 @@ extern "C" void create_all_tasks(void)
     ESP_LOGI(TAG, "Creando tareas...");
 
     // Tarea WiFi (alta prioridad)
-    xTaskCreate(wifi_task, "WiFi_Task", 8192, NULL, 3, NULL);
+    xTaskCreate(wifi_task, "WiFi_Task", 12288, NULL, 3, NULL);
 
-    // Tarea mDNS (baja prioridad, después de WiFi)
-    xTaskCreate(mdns_task, "mDNS_Task", 4096, NULL, 1, NULL);
+    // ✅ AUMENTAR stack de mDNS
+    xTaskCreate(mdns_task, "mDNS_Task", 12288, NULL, 1, NULL); // 12KB en lugar de 8KB
 
     ESP_LOGI(TAG, "✅ Todas las tareas creadas");
 }

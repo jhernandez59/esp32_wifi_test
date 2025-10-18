@@ -127,21 +127,25 @@ extern "C" void wifi_task(void *pvParameters)
         ESP_LOGI(TAG, "🎉 ¡CONEXIÓN EXITOSA!");
         print_wifi_status();
 
-        ESP_LOGI(TAG, "mDNS se iniciará automáticamente...");
+        ESP_LOGI(TAG, "✅ WiFi estable, mDNS debería iniciar pronto...");
     }
     else if (bits & WIFI_FAIL_BIT)
     {
         ESP_LOGE(TAG, "❌ Fallo en la conexión WiFi después de %d intentos", MAX_RETRY);
-    }
 
-    // Limpiar event handlers
-    ESP_ERROR_CHECK(esp_event_handler_instance_unregister(WIFI_EVENT, ESP_EVENT_ANY_ID, &instance_any_id));
-    ESP_ERROR_CHECK(esp_event_handler_instance_unregister(IP_EVENT, IP_EVENT_STA_GOT_IP, &instance_got_ip));
-    vEventGroupDelete(s_wifi_event_group);
+        // Limpiar event handlers
+        ESP_ERROR_CHECK(esp_event_handler_instance_unregister(WIFI_EVENT, ESP_EVENT_ANY_ID, &instance_any_id));
+        ESP_ERROR_CHECK(esp_event_handler_instance_unregister(IP_EVENT, IP_EVENT_STA_GOT_IP, &instance_got_ip));
+        vEventGroupDelete(s_wifi_event_group);
+        vTaskDelete(NULL);
+        return;
+    }
 
     // Mantener la tarea viva
     while (1)
     {
-        vTaskDelay(pdMS_TO_TICKS(10000));
+        vTaskDelay(pdMS_TO_TICKS(30000)); // 30 segundos
+        ESP_LOGI(TAG, "=== ESTADO WIFI PERIÓDICO ===");
+        print_wifi_status(); // Reutiliza tu función existente
     }
 }
